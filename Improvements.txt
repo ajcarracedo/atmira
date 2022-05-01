@@ -1,1 +1,6 @@
-#API_KEY Constant to .config
+#Autorías de clases co sumaries
+
+#API_KEY Constant a .config? y Fechas a config?
+
+#NASARequest que no esté vinculado a NasaResponseDTO para hacerlo general
+#NASARequest como implementación de la interfaz IExternalRequest y con IHttpClientFactory _clientFactory -> https://docs.microsoft.com/es-es/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1

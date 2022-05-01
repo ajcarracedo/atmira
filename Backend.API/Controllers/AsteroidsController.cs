@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Backend.API.Controllers
@@ -36,7 +37,7 @@ namespace Backend.API.Controllers
                     string url = GetNasaNeoUrl();
 
                     //Se realiza la petición
-                    NasaResponseDTO nasaResponseDTO = new NasaResponseDTO();
+                    NasaResponseDTO nasaResponseDTO = await NasaRequest(url);
 
                     //The request is made
                     List<APIResponseDTO> apiResponseDTO = DataTreatment(nasaResponseDTO, planet);
@@ -71,6 +72,27 @@ namespace Backend.API.Controllers
             DateTime endDate = startDate.AddDays(7);
 
             ret = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={NASA.API_KEY}";
+
+            return ret;
+        }
+
+        private async Task<NasaResponseDTO> NasaRequest(string url)
+        {
+            NasaResponseDTO ret = new NasaResponseDTO();
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    ret = JsonConvert.DeserializeObject<NasaResponseDTO>(response.Content.ReadAsStringAsync().Result);
+                }
+                else
+                {
+                    ret = null;
+                }
+            }
 
             return ret;
         }

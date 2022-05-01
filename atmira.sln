@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{2F2AF1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B2CB17C1-3E41-437A-9377-89FC72BB2D92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.DTO", "Backend.DTO\Backend.DTO.csproj", "{649C203A-C2C5-43C8-8E31-F217EBD28E2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{D8B493E7-671E-4CBE-867C-1490CE81A152}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8B493E7-671E-4CBE-867C-1490CE81A152}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8B493E7-671E-4CBE-867C-1490CE81A152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649C203A-C2C5-43C8-8E31-F217EBD28E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649C203A-C2C5-43C8-8E31-F217EBD28E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649C203A-C2C5-43C8-8E31-F217EBD28E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649C203A-C2C5-43C8-8E31-F217EBD28E2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

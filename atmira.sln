@@ -9,7 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.Constant", "Backend
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{4647EF5F-B7C8-4D70-BB98-936FF2CA2727}"
 	ProjectSection(SolutionItems) = preProject
-		Improvements.txt = Improvements.txt
+		Documentation\Atmira - Prueba NET.pdf = Documentation\Atmira - Prueba NET.pdf
+		Documentation\Improvements.txt = Documentation\Improvements.txt
 		Documentation\NASA Request example.txt = Documentation\NASA Request example.txt
 		Documentation\NASA Response example.txt = Documentation\NASA Response example.txt
 	EndProjectSection

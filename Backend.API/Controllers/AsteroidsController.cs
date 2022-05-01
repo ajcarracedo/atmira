@@ -16,12 +16,14 @@ namespace Backend.API.Controllers
     [Route("[controller]")]
     public class AsteroidsController : ControllerBase
     {
+        #region Configuration
         private readonly ILogger<AsteroidsController> _logger;
 
         public AsteroidsController(ILogger<AsteroidsController> logger)
         {
             _logger = logger;
         }
+        #endregion
 
         [HttpGet]
         public async Task<ActionResult<string>> Get(string planet)

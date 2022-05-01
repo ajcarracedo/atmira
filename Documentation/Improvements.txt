@@ -6,3 +6,7 @@
 #NASARequest como implementación de la interfaz IExternalRequest y con IHttpClientFactory _clientFactory -> https://docs.microsoft.com/es-es/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1
 
 #No devolver HttpStatusCode 200 si ha habido fallo
+
+#Test para el mapper
+#Test para petición http
+#test para insensitiveCase

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Backend.Constant;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,16 @@ namespace Backend.API.Controllers
 
             try
             {
+                //The input parameter is validated
+                if (!String.IsNullOrEmpty(planet) && !String.IsNullOrWhiteSpace(planet) && Parameters.VALID_PLANETS.Contains(planet, StringComparer.CurrentCultureIgnoreCase))
+                {
 
+                }
+                else
+                {
+                    _logger.LogError(ResponseMessages.INVALID_PARAM, planet);
+                    ret = ResponseMessages.INVALID_PARAM;
+                }
             }
             catch (Exception exc)
             {

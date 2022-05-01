@@ -7,6 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend.API", "Backend.API\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.Constant", "Backend.Constant\Backend.Constant.csproj", "{D8B493E7-671E-4CBE-867C-1490CE81A152}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{4647EF5F-B7C8-4D70-BB98-936FF2CA2727}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\NASA Request example.txt = Documentation\NASA Request example.txt
+		Documentation\NASA Response example.txt = Documentation\NASA Response example.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{2F2AF15E-3355-42F8-A974-82C35F16B190}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B2CB17C1-3E41-437A-9377-89FC72BB2D92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

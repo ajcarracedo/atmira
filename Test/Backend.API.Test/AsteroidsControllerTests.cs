@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Backend.API.Test
+namespace Backend.Test
 {
     public class AsteroidsControllerTests
     {
@@ -44,7 +44,7 @@ namespace Backend.API.Test
             var ret = await _sut.Get(null);
 
             //Assert
-            Assert.Equal(ret.Value, ResponseMessages.INVALID_PARAM);
+            Assert.Equal(ret.Value, Constants.ResponseMessages.INVALID_PARAM);
         }
 
         [Fact]
@@ -56,8 +56,7 @@ namespace Backend.API.Test
             var ret = await _sut.Get("stuff");
 
             //Assert
-            Assert.Equal(ret.Value, ResponseMessages.INVALID_PARAM);
+            Assert.Equal(ret.Value, Constants.ResponseMessages.INVALID_PARAM);
         }
-
     }
 }

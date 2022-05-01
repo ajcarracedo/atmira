@@ -1,4 +1,4 @@
-#Autorías de clases co sumaries
+#Autorías de clases con sumaries
 
 #API_KEY Constant a .config? y Fechas a config?
 
@@ -9,4 +9,6 @@
 
 #Test para el mapper
 #Test para petición http
-#test para insensitiveCase
+#Test para insensitiveCase
+#Test para máximo 3 objetos
+#Test -> llevar la búsqueda de ficheros (GetParent...) a un Utils

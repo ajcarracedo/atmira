@@ -90,10 +90,6 @@ namespace Backend.API.Controllers
                 {
                     ret = JsonConvert.DeserializeObject<NasaResponseDTO>(response.Content.ReadAsStringAsync().Result);
                 }
-                else
-                {
-                    ret = null;
-                }
             }
 
             return ret;

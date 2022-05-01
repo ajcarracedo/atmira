@@ -4,3 +4,5 @@
 
 #NASARequest que no esté vinculado a NasaResponseDTO para hacerlo general
 #NASARequest como implementación de la interfaz IExternalRequest y con IHttpClientFactory _clientFactory -> https://docs.microsoft.com/es-es/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1
+
+#No devolver HttpStatusCode 200 si ha habido fallo

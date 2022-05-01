@@ -36,10 +36,10 @@ namespace Backend.API.Controllers
                     //The URL for the external request is created
                     string url = GetNasaNeoUrl();
 
-                    //Se realiza la petición
+                    //The request is made
                     NasaResponseDTO nasaResponseDTO = await NasaRequest(url);
 
-                    //The request is made
+                    //The required data is searched
                     List<APIResponseDTO> apiResponseDTO = DataTreatment(nasaResponseDTO, planet);
                     ret = JsonConvert.SerializeObject(apiResponseDTO);
                 }

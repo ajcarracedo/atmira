@@ -47,7 +47,7 @@ namespace Backend.Core.InterfacesImpl
                                                                .OrderByDescending(obd => (obd.estimated_diameter.kilometers.estimated_diameter_max + obd.estimated_diameter.kilometers.estimated_diameter_min) / 2)
                                                                .GroupBy(gb => gb.neo_reference_id)
                                                                .Take(3)
-                                                               .Select(s => s.FirstOrDefault().MaptoDTO())
+                                                               .Select(s => s.FirstOrDefault().MapToAPIResponseDTO())
                                                                .ToList();
             }
 

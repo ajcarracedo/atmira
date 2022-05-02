@@ -5,7 +5,7 @@ namespace Backend.DTO.APIResponse
 {
     public static class APIResponseMapperDTO
     {
-        public static APIResponseDTO MaptoDTO(this Date d)
+        public static APIResponseDTO MapToAPIResponseDTO(this Date d)
         {
             return new APIResponseDTO()
             {

@@ -1,4 +1,5 @@
 ﻿using Backend.DTO.NASAResponse;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Backend.Core.Interfaces
 {
     public interface IHttp
     {
-        Task<NasaResponseDTO> Request(string url);
+        Task<JObject> Request(string url);
     }
 }

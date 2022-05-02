@@ -32,10 +32,10 @@ namespace Backend.Test
             DateTime endDate = new DateTime(2022, 05, 07);
             string url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={Constants.NASA.API_KEY}";
 
-            mock.Setup(s => s.GetNasaNeoUrl()).Returns(url);
+            mock.Setup(s => s.GetNasaNeoUrl(startDate, endDate)).Returns(url);
 
             //Assert
-            Assert.Equal($"https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-05-01&end_date=2022-05-07&api_key=NTHIocgkS4vEsDMHf86rehVhXaKlC2YQ3vojvVjh", mock.Object.GetNasaNeoUrl());
+            Assert.Equal($"https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-05-01&end_date=2022-05-07&api_key=NTHIocgkS4vEsDMHf86rehVhXaKlC2YQ3vojvVjh", mock.Object.GetNasaNeoUrl(startDate, endDate));
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace Backend.Test
             //Act
 
             //Assert
-            Assert.True(CoreKernel.Retrieve().GetAsteroids().DataTreatment(nasaResponseDTO, $"stuff").Count == 0);
+            Assert.True(CoreKernel.Retrieve().GetAsteroids().TopThreeWithMaximunDiameterPotentiallyHazardous(nasaResponseDTO, $"stuff").Count == 0);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace Backend.Test
             //Act
 
             //Assert
-            Assert.True(CoreKernel.Retrieve().GetAsteroids().DataTreatment(nasaResponseDTO, $"stuff").Count == 0);
+            Assert.True(CoreKernel.Retrieve().GetAsteroids().TopThreeWithMaximunDiameterPotentiallyHazardous(nasaResponseDTO, $"stuff").Count == 0);
         }
     }
 }

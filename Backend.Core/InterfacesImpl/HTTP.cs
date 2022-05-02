@@ -1,6 +1,7 @@
 ﻿using Backend.Core.Interfaces;
 using Backend.DTO.NASAResponse;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,9 +14,9 @@ namespace Backend.Core.InterfacesImpl
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public async Task<NasaResponseDTO> Request(string url)
+        public async Task<JObject> Request(string url)
         {
-            NasaResponseDTO ret = new NasaResponseDTO();
+            JObject ret = new JObject();
 
             using (HttpClient client = new HttpClient())
             {
@@ -23,7 +24,11 @@ namespace Backend.Core.InterfacesImpl
 
                 if (response.IsSuccessStatusCode)
                 {
-                    ret = JsonConvert.DeserializeObject<NasaResponseDTO>(response.Content.ReadAsStringAsync().Result);
+                    ret = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+                }
+                else
+                {
+                    //todo:logger
                 }
             }
 

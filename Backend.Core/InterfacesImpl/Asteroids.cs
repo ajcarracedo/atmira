@@ -17,14 +17,14 @@ namespace Backend.Core.InterfacesImpl
         /// 
         /// </summary>
         /// <returns></returns>
-        public string GetNasaNeoUrl()
+        public string GetNasaNeoUrl(DateTime startDate, DateTime endDate)
         {
             string ret = string.Empty;
-
-            DateTime startDate = DateTime.UtcNow;
-            DateTime endDate = startDate.AddDays(7);
-
-            ret = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={Constants.NASA.API_KEY}";
+            
+            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue && startDate <= endDate)
+            {
+                ret = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={Constants.NASA.API_KEY}";
+            }
 
             return ret;
         }
@@ -35,7 +35,7 @@ namespace Backend.Core.InterfacesImpl
         /// <param name="nasaResponseDTO"></param>
         /// <param name="planet"></param>
         /// <returns></returns>
-        public List<APIResponseDTO> DataTreatment(NasaResponseDTO nasaResponseDTO, string planet)
+        public List<APIResponseDTO> TopThreeWithMaximunDiameterPotentiallyHazardous(NasaResponseDTO nasaResponseDTO, string planet)
         {
             List<APIResponseDTO> ret = new List<APIResponseDTO>();
 

@@ -1,5 +1,6 @@
 ﻿using Backend.DTO.APIResponse;
 using Backend.DTO.NASAResponse;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,8 +8,8 @@ namespace Backend.Core.Interfaces
 {
     public interface IAsteroids
     {
-        string GetNasaNeoUrl();
+        string GetNasaNeoUrl(DateTime startDate, DateTime endDate);
 
-        List<APIResponseDTO> DataTreatment(NasaResponseDTO nasaResponseDTO, string planet);
+        List<APIResponseDTO> TopThreeWithMaximunDiameterPotentiallyHazardous(NasaResponseDTO nasaResponseDTO, string planet);
     }
 }

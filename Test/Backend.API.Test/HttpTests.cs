@@ -5,6 +5,7 @@ using Backend.Core.InterfacesImpl;
 using Backend.DTO.NASAResponse;
 using Moq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -28,13 +29,13 @@ namespace Backend.Test
             var mock = new Mock<IHttp>();
 
             //Act
-            NasaResponseDTO ret = new NasaResponseDTO();
+            JObject ret = new JObject();
             mock.Setup(s => s.Request($"stuff")).Returns(Task.FromResult(ret));
 
             //Assert
-            Assert.True(mock.Object.Request($"stuff").Result.element_count == 0);
-            Assert.Null(mock.Object.Request($"stuff").Result.near_earth_objects);
-            Assert.Null(mock.Object.Request($"stuff").Result.links);
+            Assert.True(mock.Object.Request($"stuff").Result.ToObject<NasaResponseDTO>().element_count == 0);
+            Assert.Null(mock.Object.Request($"stuff").Result.ToObject<NasaResponseDTO>().near_earth_objects);
+            Assert.Null(mock.Object.Request($"stuff").Result.ToObject<NasaResponseDTO>().links);
         }
     }
 }

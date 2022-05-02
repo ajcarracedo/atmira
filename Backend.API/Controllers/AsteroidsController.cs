@@ -5,6 +5,7 @@ using Backend.DTO.NASAResponse;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,13 +37,16 @@ namespace Backend.API.Controllers
                 if (!String.IsNullOrEmpty(planet) && !String.IsNullOrWhiteSpace(planet) && Constants.Parameters.VALID_PLANETS.Contains(planet, StringComparer.CurrentCultureIgnoreCase))
                 {
                     //The URL for the external request is created
-                    string url = CoreKernel.Retrieve().GetAsteroids().GetNasaNeoUrl();
+                    DateTime startDate = DateTime.UtcNow;
+                    DateTime endDate = startDate.AddDays(7);
+                    string url = CoreKernel.Retrieve().GetAsteroids().GetNasaNeoUrl(startDate, endDate);
 
                     //The request is made
-                    NasaResponseDTO nasaResponseDTO = await CoreKernel.Retrieve().GetHttp().Request(url);
+                    JObject nasaResponseJObject = await CoreKernel.Retrieve().GetHttp().Request(url);
+                    NasaResponseDTO nasaResponseDTO = nasaResponseJObject.ToObject<NasaResponseDTO>();
 
                     //The required data is searched
-                    List<APIResponseDTO> apiResponseDTO = CoreKernel.Retrieve().GetAsteroids().DataTreatment(nasaResponseDTO, planet);
+                    List<APIResponseDTO> apiResponseDTO = CoreKernel.Retrieve().GetAsteroids().TopThreeWithMaximunDiameterPotentiallyHazardous(nasaResponseDTO, planet);
                     ret = JsonConvert.SerializeObject(apiResponseDTO);
                 }
                 else

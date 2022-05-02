@@ -9,8 +9,6 @@ namespace Backend.Core.Interfaces
     {
         string GetNasaNeoUrl();
 
-        Task<NasaResponseDTO> NasaRequest(string url);
-
         List<APIResponseDTO> DataTreatment(NasaResponseDTO nasaResponseDTO, string planet);
     }
 }

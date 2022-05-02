@@ -12,9 +12,10 @@ namespace Backend.Core.Injections
         private CoreKernel()
         {
             _iKernel.Bind<IAsteroids>().To<Asteroids>();
+            _iKernel.Bind<IHttp>().To<Http>();
         }
 
-        public static CoreKernel retrieve()
+        public static CoreKernel Retrieve()
         {
             lock (_iKernel)
             {
@@ -27,10 +28,14 @@ namespace Backend.Core.Injections
             return _apiKernel;
         }
 
-        public IAsteroids getAsteroids()
+        public IAsteroids GetAsteroids()
         {
             return _iKernel.Get<IAsteroids>();
         }
 
+        public IHttp GetHttp()
+        {
+            return _iKernel.Get<IHttp>();
+        }
     }
 }

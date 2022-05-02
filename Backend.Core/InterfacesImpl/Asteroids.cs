@@ -32,28 +32,6 @@ namespace Backend.Core.InterfacesImpl
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        public async Task<NasaResponseDTO> NasaRequest(string url)
-        {
-            NasaResponseDTO ret = new NasaResponseDTO();
-
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = await client.GetAsync(url);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    ret = JsonConvert.DeserializeObject<NasaResponseDTO>(response.Content.ReadAsStringAsync().Result);
-                }
-            }
-
-            return ret;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="nasaResponseDTO"></param>
         /// <param name="planet"></param>
         /// <returns></returns>

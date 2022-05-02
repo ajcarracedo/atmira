@@ -36,13 +36,13 @@ namespace Backend.API.Controllers
                 if (!String.IsNullOrEmpty(planet) && !String.IsNullOrWhiteSpace(planet) && Constants.Parameters.VALID_PLANETS.Contains(planet, StringComparer.CurrentCultureIgnoreCase))
                 {
                     //The URL for the external request is created
-                    string url = CoreKernel.retrieve().getAsteroids().GetNasaNeoUrl();
+                    string url = CoreKernel.Retrieve().GetAsteroids().GetNasaNeoUrl();
 
                     //The request is made
-                    NasaResponseDTO nasaResponseDTO = await CoreKernel.retrieve().getAsteroids().NasaRequest(url);
+                    NasaResponseDTO nasaResponseDTO = await CoreKernel.Retrieve().GetHttp().Request(url);
 
                     //The required data is searched
-                    List<APIResponseDTO> apiResponseDTO = CoreKernel.retrieve().getAsteroids().DataTreatment(nasaResponseDTO, planet);
+                    List<APIResponseDTO> apiResponseDTO = CoreKernel.Retrieve().GetAsteroids().DataTreatment(nasaResponseDTO, planet);
                     ret = JsonConvert.SerializeObject(apiResponseDTO);
                 }
                 else

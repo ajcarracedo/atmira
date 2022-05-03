@@ -2,10 +2,11 @@
 
 #API_KEY Constant a .config? y Fechas a config?
 
-#NASARequest que no esté vinculado a NasaResponseDTO para hacerlo general, return string
-#NASARequest como implementación de la interfaz IExternalRequest y con IHttpClientFactory _clientFactory -> https://docs.microsoft.com/es-es/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1
+#NASARequest con IHttpClientFactory _clientFactory -> https://docs.microsoft.com/es-es/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.1
 
 #No devolver HttpStatusCode 200 si ha habido fallo
+
+#Validar la respuesta de la NASA en Json con un schema
 
 #Test para el mapper
 #Test para petición http
